@@ -48,7 +48,13 @@ class TransactionList extends StatelessWidget {
                     subtitle: Text(
                         DateFormat.yMMMd().format(transactions[index].date)
                     ),
-                    trailing: IconButton(
+                    trailing:MediaQuery.of(context).size.width >400 ? FlatButton.icon(
+                       onPressed: ()=> deleteTransaction(transactions[index].id),
+                       icon: Icon(Icons.delete), 
+                       color:Colors.red,
+                       label: Text('Delete'),
+
+                      ) :IconButton(
                       icon: Icon(Icons.delete), 
                       color:Colors.red, onPressed: ()=> deleteTransaction(transactions[index].id),
                     ),
